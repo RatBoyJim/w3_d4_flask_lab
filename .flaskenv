@@ -1,0 +1,2 @@
+FLASK_APP=event_main.py
+FLASK_ENV=development

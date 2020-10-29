@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    {% for event in event_list %}
+        <div>
+            <span>{{event.date}} - {{event.name}} - {{event.num_gusts}} - {{event.room_location}} - {{event.description}}
+            {% if event.is_weekly %}
+            &#9989; 
+            {% endif %}
+            <input type="{{event.name}}" value="Remove Event">
+        </span>
+        </div>
+    {% endfor %}
+
+    <form action="/add-event" method="POST">
+                                <!-- DATE -->
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date">
+        
+                                <!-- NAME -->
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+
+                                <!-- NUMBER OF GUESTS -->
+        <label for="no-of-guests">Number of guests</label>
+        <select name="no-of-guests" id="no-of-guests">
+            <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+        </select>
+
+                                <!-- ROOM LOCATION -->
+        <label for="room-location">Room Location</label>
+        <input type="room-location" name="room-location" id="room-location">
+
+                                <!-- DESCRPTION -->
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="20" rows="2"></textarea>
+        <input type="submit" value="Add Task">
+
+        <label for="is-weekly">Is weekly?</label>
+        <input type="checkbox" name="is-weekly" id="is-weekly">
+    </form>
+</body>
+</html>
